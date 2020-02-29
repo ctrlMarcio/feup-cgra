@@ -12,7 +12,7 @@ class MyScene extends CGFscene {
         this.initCameras();
         this.initLights();
 
-        //Background color
+        // Background color
         this.gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
         this.gl.clearDepth(100.0);
@@ -20,11 +20,20 @@ class MyScene extends CGFscene {
         this.gl.enable(this.gl.CULL_FACE);
         this.gl.depthFunc(this.gl.LEQUAL);
 
-        //Initialize scene objects
+        // Initialize scene objects
         this.axis = new CGFaxis(this);
         this.tangram = new MyTangram(this);
+        this.unitCube = new MyUnitCube(this);
+        this.unitCubeQuad = new MyUnitCubeQuad(this);
 
-        this.displayAxis = false;
+        // Flags that control what will appear on the menu to display
+        this.displayAxis = true;
+        this.displayTangram = true;
+        this.displayUnitCube = false;
+        this.displayUnitCubeQuad = true;
+        this.onCenter = true;
+
+        // Variable that saves the scale factor of the scene
         this.scaleFactor = 1;
     }
 
@@ -60,11 +69,33 @@ class MyScene extends CGFscene {
 
         this.setDefaultAppearance();
 
-        // scale operator on gui to scale the whole scene
+        // Scale operator on gui to scale the scene
         this.scale(this.scaleFactor, this.scaleFactor, this.scaleFactor);
 
-        this.pushMatrix();
-        this.tangram.display();
-        this.popMatrix();
+        // Puts the scene parallel to xz and with the top left center in the center of the referential
+        if (this.onCenter) {
+            this.translate(4, 0, 4);
+            this.rotate(-Math.PI / 2, 1, 0, 0);
+        }
+
+        // Displays the objects according to their flag
+        if (this.displayUnitCube) {
+            this.pushMatrix();
+            this.translate(0, 0, -0.501);
+            this.scale(8, 8, 1);
+            this.setDiffuse(1, 1, 1, 1.0); // colour white
+            this.unitCube.display();
+            this.popMatrix();
+        }
+        if (this.displayUnitCubeQuad) {
+            this.pushMatrix();
+            this.translate(0, 0, -0.501);
+            this.scale(8, 8, 1);
+            this.unitCubeQuad.display();
+            this.popMatrix();
+        }
+        if (this.displayTangram)
+            this.tangram.display();
+
     }
 }

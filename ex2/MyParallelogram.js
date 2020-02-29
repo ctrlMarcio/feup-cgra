@@ -19,9 +19,7 @@ class MyParallelogram extends CGFobject {
 
         // indice of a triangle and its inverse, double-sided 
         this.indices = [
-            0, 1, 3,
             3, 1, 0,
-            1, 2, 3,
             3, 2, 1
         ];
 
