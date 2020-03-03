@@ -70,9 +70,12 @@ class MyTangram extends CGFobject {
         this.bigTriangleBlue.display();
         this.scene.popMatrix();
 
+        var diff1 = Math.sqrt((3 - 2 * Math.sqrt(2)) / 4);
+        var diff2 = Math.sqrt(2);
+
         // Displays the regular triangle
         this.scene.pushMatrix();
-        this.scene.translate(0.214, -1.2, 0);
+        this.scene.translate(diff1, -Math.sqrt(2) + diff1, 0);
         this.scene.rotate(-Math.PI / 4, 0, 0, 1);
         this.scene.setDiffuse(1, 155/255, 207/255, 1.0); // make pink
         this.triangle.display();
@@ -80,8 +83,9 @@ class MyTangram extends CGFobject {
 
         // Displays the small red triangle
         this.scene.pushMatrix();
-        this.scene.translate(Math.sqrt(2) / 2 + 0.214, -Math.sqrt(2) / 2 + 0.214, 0);
-        this.scene.rotate(Math.PI * 135 / 180, 0, 0, 1);
+        this.scene.translate(diff1, -diff2 + diff1, 0)
+        this.scene.rotate(Math.PI * 3 /4, 0, 0, 1);
+        this.scene.translate(0, -1, 0);
         this.scene.setDiffuse(1, 27/255, 27/255, 1.0); // make pink
         this.smallTriangleRed.display();
         this.scene.popMatrix();
