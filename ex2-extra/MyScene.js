@@ -24,17 +24,17 @@ class MyScene extends CGFscene {
         this.axis = new CGFaxis(this);
         this.floor = new MyQuad(this);
         this.classroom = new Classroom(this);
-        this.tmp = new Chair(this);
 
         // Flags that control what will appear on the menu to display
         this.displayAxis = false;
+        this.partyMode = false;
 
         // Variable that saves the scale factor of the scene
         this.scaleFactor = 1;
     }
 
     initLights() {
-        this.lights[0].setPosition(15, 2, 5, 1);
+        this.lights[0].setPosition(0, 3, 0, 1);
         this.lights[0].setDiffuse(1.0, 1.0, 1.0, 1.0);
         this.lights[0].enable();
         this.lights[0].update();
@@ -65,10 +65,19 @@ class MyScene extends CGFscene {
 
         this.setDefaultAppearance();
 
+        if (this.partyMode) {
+            this.lights[1].setDiffuse(1.0, 0, 0, 1.0);
+            this.lights[1].enable();
+            this.lights[1].update();
+            this.setAmbient(Math.random(), Math.random(), Math.random(), 1.0);
+        } else {
+            this.lights[1].disable();
+            this.lights[1].update();
+        }
+
         // Scale operator on gui to scale the scene
         this.scale(this.scaleFactor, this.scaleFactor, this.scaleFactor);
 
-        this.classroom.display();
-        //this.tmp.display();
+        this.classroom.display(this.partyMode);
     }
 }

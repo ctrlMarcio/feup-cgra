@@ -5,7 +5,9 @@ serialInclude=function(a){var b=console,c=serialInclude.l;if(a.length>0)c.splice
 serialInclude(['../lib/CGF.js', 'MyScene.js', 'MyInterface.js', 'MyTriangle.js',
 'MyUnitCubeQuad.js', 'MyQuad.js', 'MyUnitCubeQuad.js', 'table/Leg.js', 'table/TableTop.js',
 'table/Table.js', 'room/Room.js', 'Classroom.js', 'InvertedCube.js', 'room/TableGroup.js',
-'chair/SittingPlate.js', 'chair/Chair.js', 'chair/ChairLeg.js',
+'chair/SittingPlate.js', 'chair/Chair.js', 'chair/ChairLeg.js', 'whiteboard/WhiteBoard.js',
+'computer/Keyboard.js', 'computer/ComputerScreen.js', 'computer/ComputerSupport.js',
+'computer/ComputerScreenFrame.js',
 
 main=function()
 {

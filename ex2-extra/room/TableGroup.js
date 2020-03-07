@@ -7,15 +7,16 @@ class TableGroup extends CGFobject {
     init() {
         this.table = new Table(this.scene);
 
-        this.maxgap = 0.3;
-        this.x1gap = Math.random() * this.maxgap;
-        this.z1gap = Math.random() * this.maxgap;
-        this.x2gap = Math.random() * this.maxgap;
-        this.z2gap = Math.random() * this.maxgap;
-        this.x3gap = Math.random() * this.maxgap;
-        this.z3gap = Math.random() * this.maxgap;
-        this.x4gap = Math.random() * this.maxgap;
-        this.z4gap = Math.random() * this.maxgap;
+        var MAX_GAP = 0.2;
+
+        this.x1gap = Math.random() * MAX_GAP;
+        this.z1gap = Math.random() * MAX_GAP;
+        this.x2gap = Math.random() * MAX_GAP;
+        this.z2gap = Math.random() * MAX_GAP;
+        this.x3gap = Math.random() * MAX_GAP;
+        this.z3gap = Math.random() * MAX_GAP;
+        this.x4gap = Math.random() * MAX_GAP;
+        this.z4gap = Math.random() * MAX_GAP;
     }
 
     display() {

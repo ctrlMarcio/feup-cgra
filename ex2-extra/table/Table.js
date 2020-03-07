@@ -47,4 +47,8 @@ class Table extends CGFobject {
 
         this.scene.popMatrix();
     }
+
+    getBaseHeight() {
+        return this.leg.height + this.tableTop.yScale; // useful to place objects above the table
+    }
 }
