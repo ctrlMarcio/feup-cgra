@@ -119,8 +119,8 @@ class MyScene extends CGFscene {
         //this.quadMaterial.apply();
 
         //this.quad.display();
-        //this.tangram.display();
-        this.cube.display(this.linearRegression);
+        this.tangram.display();
+        //this.cube.display(this.linearRegression);
 
         // ---- END Primitive drawing section
     }
